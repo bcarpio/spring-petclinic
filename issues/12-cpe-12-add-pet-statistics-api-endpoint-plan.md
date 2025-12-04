@@ -116,9 +116,9 @@ None
 
 ---
 
-### Step 4: Create unit tests for PetStatisticsService success cases ⏳
+### Step 4: Create unit tests for PetStatisticsService success cases 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Create unit tests for service layer covering happy path scenarios: calculating total pets, grouping by type, and computing average visits
 
 **Files:**
