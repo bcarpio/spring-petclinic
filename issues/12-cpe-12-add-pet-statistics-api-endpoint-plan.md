@@ -130,9 +130,9 @@ None
 
 ---
 
-### Step 5: Create unit tests for PetStatisticsService error handling ⏳
+### Step 5: Create unit tests for PetStatisticsService error handling 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Create unit tests for service layer error scenarios: empty database, database connection failures, and null handling
 
 **Files:**
