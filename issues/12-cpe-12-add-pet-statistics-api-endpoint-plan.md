@@ -144,9 +144,9 @@ None
 
 ---
 
-### Step 6: Create unit tests for PetStatisticsController success cases ⏳
+### Step 6: Create unit tests for PetStatisticsController success cases 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Create controller unit tests using @WebMvcTest for successful GET requests returning 200 with correct statistics JSON
 
 **Files:**
