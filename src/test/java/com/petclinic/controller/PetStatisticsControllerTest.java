@@ -210,4 +210,82 @@ class PetStatisticsControllerTest {
 
         verify(petStatisticsService).calculatePetStatistics();
     }
+
+    // Error handling tests
+
+    @Test
+    @DisplayName("Should return 500 when service throws StatisticsCalculationException")
+    void shouldReturn500WhenServiceThrowsStatisticsCalculationException() throws Exception {
+        // Given
+        when(petStatisticsService.calculatePetStatistics())
+                .thenThrow(new StatisticsCalculationException("Database error occurred"));
+
+        // When & Then
+        mockMvc.perform(get("/api/stats/pets")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isInternalServerError());
+
+        verify(petStatisticsService).calculatePetStatistics();
+    }
+
+    @Test
+    @DisplayName("Should return 500 when service throws unexpected RuntimeException")
+    void shouldReturn500WhenServiceThrowsUnexpectedRuntimeException() throws Exception {
+        // Given
+        when(petStatisticsService.calculatePetStatistics())
+                .thenThrow(new RuntimeException("Unexpected error"));
+
+        // When & Then
+        mockMvc.perform(get("/api/stats/pets")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isInternalServerError());
+
+        verify(petStatisticsService).calculatePetStatistics();
+    }
+
+    @Test
+    @DisplayName("Should return 500 when service throws NullPointerException")
+    void shouldReturn500WhenServiceThrowsNullPointerException() throws Exception {
+        // Given
+        when(petStatisticsService.calculatePetStatistics())
+                .thenThrow(new NullPointerException("Null value encountered"));
+
+        // When & Then
+        mockMvc.perform(get("/api/stats/pets")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isInternalServerError());
+
+        verify(petStatisticsService).calculatePetStatistics();
+    }
+
+    @Test
+    @DisplayName("Should return 500 when service throws IllegalStateException")
+    void shouldReturn500WhenServiceThrowsIllegalStateException() throws Exception {
+        // Given
+        when(petStatisticsService.calculatePetStatistics())
+                .thenThrow(new IllegalStateException("Invalid state"));
+
+        // When & Then
+        mockMvc.perform(get("/api/stats/pets")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isInternalServerError());
+
+        verify(petStatisticsService).calculatePetStatistics();
+    }
+
+    @Test
+    @DisplayName("Should return 500 when service throws StatisticsCalculationException with cause")
+    void shouldReturn500WhenServiceThrowsStatisticsCalculationExceptionWithCause() throws Exception {
+        // Given
+        Exception cause = new RuntimeException("Root cause");
+        when(petStatisticsService.calculatePetStatistics())
+                .thenThrow(new StatisticsCalculationException("Failed to calculate statistics", cause));
+
+        // When & Then
+        mockMvc.perform(get("/api/stats/pets")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isInternalServerError());
+
+        verify(petStatisticsService).calculatePetStatistics();
+    }
 }
