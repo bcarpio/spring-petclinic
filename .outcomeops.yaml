@@ -1,0 +1,5 @@
+# OutcomeOps AI Assist Configuration
+# Spring Boot PetClinic - Java/Maven application
+
+code_generation:
+  backend: java
