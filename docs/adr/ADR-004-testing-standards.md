@@ -10,6 +10,21 @@ We need consistent testing patterns for the Spring PetClinic application, coveri
 
 ## Decision
 
+### Test Requirements by Component Type
+
+Not all components require dedicated unit tests. The testing requirements vary by component type:
+
+| Component Type | Dedicated Tests Required | Test Approach |
+|---------------|-------------------------|---------------|
+| `*Controller.java` | **Yes** | `@WebMvcTest` unit tests |
+| `*Repository.java` | No | Tested via integration tests or implicitly via controller tests |
+| `*Validator.java` | **Yes** | Unit tests with assertions |
+| `*Formatter.java` | **Yes** | Unit tests |
+| Entity/Model classes | No | Tested implicitly via controller/integration tests |
+| Utility classes | **Yes** (if complex logic) | Unit tests |
+
+**Rationale**: Spring Data JPA repositories are interfaces with generated implementations - there's no custom code to test. They are verified through integration tests that exercise the actual queries. Controllers contain HTTP handling logic that should be explicitly tested.
+
 ### Test Class Naming
 
 Test classes use the plural `Tests` suffix (not `Test`):

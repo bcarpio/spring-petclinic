@@ -3,3 +3,45 @@
 
 code_generation:
   backend: java
+
+# Testing configuration for PR analysis
+# Defines which source files require dedicated test files
+testing:
+  # Source file patterns that REQUIRE dedicated tests
+  require_tests:
+    - pattern: "src/main/java/**/*Controller.java"
+      test_pattern: "src/test/java/**/{name}Tests.java"
+      description: "Controllers require @WebMvcTest unit tests"
+    - pattern: "src/main/java/**/*Validator.java"
+      test_pattern: "src/test/java/**/{name}Tests.java"
+      description: "Validators require unit tests"
+    - pattern: "src/main/java/**/*Formatter.java"
+      test_pattern: "src/test/java/**/{name}Tests.java"
+      description: "Formatters require unit tests"
+    - pattern: "src/main/java/**/*Service.java"
+      test_pattern: "src/test/java/**/{name}Tests.java"
+      description: "Services with business logic require tests"
+
+  # Source file patterns that do NOT require dedicated tests
+  # These are tested implicitly through integration tests or controller tests
+  exclude_from_tests:
+    - pattern: "src/main/java/**/*Repository.java"
+      reason: "Spring Data JPA repositories are interfaces - tested via integration tests"
+    - pattern: "src/main/java/**/model/**"
+      reason: "Entity/model classes tested implicitly via controller/integration tests"
+    - pattern: "src/main/java/**/entity/**"
+      reason: "Entity classes tested implicitly via controller/integration tests"
+    - pattern: "src/main/java/**/*Application.java"
+      reason: "Main application class - tested via @SpringBootTest integration tests"
+    - pattern: "src/main/java/**/*Config.java"
+      reason: "Configuration classes - tested via integration tests"
+    - pattern: "src/main/java/**/*Properties.java"
+      reason: "Properties classes - tested via integration tests"
+
+  # Test file patterns for this project
+  test_patterns:
+    - "src/test/java/**/*Tests.java"
+    - "src/test/java/**/*Test.java"
+
+  # Test naming convention: plural 'Tests' suffix preferred
+  naming_convention: "Tests"
