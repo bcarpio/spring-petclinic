@@ -146,9 +146,9 @@ None
 
 ---
 
-### Step 6: Add unit tests for empty database scenario ⏳
+### Step 6: Add unit tests for empty database scenario 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Add test methods to PetStatisticsControllerTests for edge case when no pets exist (returns zeros/empty map) and when no visits exist (1-2 test methods)
 
 **Files:**
