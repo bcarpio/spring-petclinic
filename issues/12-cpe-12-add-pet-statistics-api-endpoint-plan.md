@@ -169,9 +169,9 @@ None
 
 ---
 
-### Step 8: Create unit tests for PetStatisticsController - error handling ⏳
+### Step 8: Create unit tests for PetStatisticsController - error handling 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Create controller tests for error scenarios: test 500 response when service throws StatisticsException (1-2 test methods)
 
 ---
