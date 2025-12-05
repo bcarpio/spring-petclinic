@@ -118,9 +118,9 @@ None
 
 ---
 
-### Step 4: Create PetStatisticsController with GET endpoint ⏳
+### Step 4: Create PetStatisticsController with GET endpoint 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Create controller in stats package with @GetMapping for /api/stats/pets that aggregates data from repositories and returns PetStatistics with @ResponseBody
 
 **Files:**
