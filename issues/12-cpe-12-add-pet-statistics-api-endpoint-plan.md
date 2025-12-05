@@ -102,9 +102,9 @@ None
 
 ---
 
-### Step 3: Create PetStatisticsController ⏳
+### Step 3: Create PetStatisticsController 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Create REST controller with GET /api/stats/pets endpoint that returns PetStatisticsDTO
 
 **Files:**
