@@ -132,9 +132,9 @@ None
 
 ---
 
-### Step 5: Create unit tests for PetStatisticsController success cases ⏳
+### Step 5: Create unit tests for PetStatisticsController success cases 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Create controller unit tests using @WebMvcTest with @MockitoBean for repositories. Test successful GET request returns 200 with correct JSON structure and values (1-2 test methods)
 
 **Files:**
