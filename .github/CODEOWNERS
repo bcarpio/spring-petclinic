@@ -1,0 +1,5 @@
+# Code Owners for spring-petclinic
+# These owners will be requested for review on all pull requests
+
+# Default owners for everything in the repo
+* @bcarpio
