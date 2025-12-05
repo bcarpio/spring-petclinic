@@ -116,9 +116,9 @@ None
 
 ---
 
-### Step 4: Create custom exception for statistics errors ⏳
+### Step 4: Create custom exception for statistics errors 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Create StatisticsException for handling database errors during statistics calculation
 
 **Files:**
