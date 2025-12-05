@@ -84,9 +84,9 @@ None
 
 ---
 
-### Step 2: Add custom query methods to PetRepository ⏳
+### Step 2: Add custom query methods to PetRepository 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Add @Query methods to PetRepository for counting pets by type using GROUP BY on pet type name
 
 **Files:**
