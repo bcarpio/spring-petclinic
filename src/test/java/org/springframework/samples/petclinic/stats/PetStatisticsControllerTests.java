@@ -175,4 +175,26 @@ class PetStatisticsControllerTests {
 			.andExpect(jsonPath("$.averageVisitsPerPet", is(0.0)));
 	}
 
+	@Test
+	void shouldReturn500WhenCountAllPetsThrowsException() throws Exception {
+		// Given - repository throws exception when counting all pets
+		given(petRepository.countAllPets()).willThrow(new RuntimeException("Database connection error"));
+
+		// When & Then
+		mockMvc.perform(get("/api/stats/pets").accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isInternalServerError());
+	}
+
+	@Test
+	void shouldReturn500WhenCountPetsByTypeThrowsException() throws Exception {
+		// Given - repository throws exception when counting pets by type
+		Long totalPets = 15L;
+		given(petRepository.countAllPets()).willReturn(totalPets);
+		given(petRepository.countPetsByType()).willThrow(new RuntimeException("Query execution failed"));
+
+		// When & Then
+		mockMvc.perform(get("/api/stats/pets").accept(MediaType.APPLICATION_JSON))
+			.andExpect(status().isInternalServerError());
+	}
+
 }
