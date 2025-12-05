@@ -101,9 +101,9 @@ None
 
 ---
 
-### Step 3: Add average visits calculation to VisitRepository ⏳
+### Step 3: Add average visits calculation to VisitRepository 🔄
 
-**Status:** pending
+**Status:** in_progress
 **Description:** Add @Query method to VisitRepository to calculate average visits per pet using COUNT and division
 
 **Files:**
